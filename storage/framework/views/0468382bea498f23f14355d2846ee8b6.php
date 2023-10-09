@@ -13,11 +13,6 @@
 
         </h2>
      <?php $__env->endSlot(); ?>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-    <?php $__currentLoopData = $images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <img src="<?php echo e(asset('storage/'. $image->image_path)); ?>" width = '100', height="100">
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">

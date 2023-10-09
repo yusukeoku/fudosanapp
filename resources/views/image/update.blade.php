@@ -6,8 +6,16 @@
     </x-slot>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
     @foreach ($images as $image)
-        <img src="{{ asset('storage/'. $image->image_path) }}" width = '100', height="100">
-    @endforeach
+    <div>
+        <img src="{{ asset('storage/'. $image->image_path) }}" width="400" height="400">
+        <br>
+        <form action="image" method="post">
+            <input type="checkbox" name="checkbox_name" id="" value="1">チェック
+            <br>
+            <button type="submit">更新</button>
+        </form>
+    </div>
+@endforeach
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -24,19 +32,18 @@
         </p>
     </header>
 
-    <form action="./index.php" method="post">
-        <input type="checkbox" name="checkbox_name" id="" value="1">チェックテスト
-        <button type="submit">送信</button>
-    </form>
-
     <form method="POST" action="{{ route('image.update') }}" enctype="multipart/form-data">
         @csrf
-        <p>画像1を更新するために画像1を指定する</p>
+        <br>
+        <p>画像1を更新</p>
         <input type="file" name="image1">
-        <p>画像2を更新するために画像2を指定する</p>
+        <br>
+        <p>画像2を更新</p>
         <input type="file" name="image2">
-        <p>画像3を更新するために画像3を指定する</p>
+        <br>
+        <p>画像3を更新</p>
         <input type="file" name="image3">
+        <br><br><br>
         <button type="submit">登録</button>
     </form>
 </section>
