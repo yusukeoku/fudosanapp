@@ -18,8 +18,9 @@ class Image extends Model
         'image_path',
         'property_id',
         'image_group_id',
-        'jyutakusapo_check',
-        'user_check',
+        'agent_check',
+        'tenant_check',
+        'owner_check',
     ];
 
     /**

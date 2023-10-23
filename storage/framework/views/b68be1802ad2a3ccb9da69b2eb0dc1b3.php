@@ -55,7 +55,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('image.edit')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('image.edit'))]); ?>
-                        <?php echo e(__('画像登録')); ?>
+                        <?php echo e(__('管理画面')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -165,7 +165,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('dashboard')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('dashboard'))]); ?>
-                <?php echo e(__('Dashboard')); ?>
+                <?php echo e(__('ダッシュボード')); ?>
 
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -192,7 +192,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('profile.edit'))]); ?>
-                    <?php echo e(__('Profile')); ?>
+                    <?php echo e(__('プロフィール')); ?>
 
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -216,7 +216,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('logout')),'onclick' => 'event.preventDefault();
                                         this.closest(\'form\').submit();']); ?>
-                        <?php echo e(__('Log Out')); ?>
+                        <?php echo e(__('ログアウト')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

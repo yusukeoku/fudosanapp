@@ -11,7 +11,7 @@
         </p>
     </header>
 
-    <form method="POST" action="<?php echo e(route('image.create')); ?>" enctype="multipart/form-data">
+    <form method="POST" action="<?php echo e(route('image.update')); ?>" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
         <br>
         <p>画像1</p>

@@ -32,5 +32,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/image', [ImageController::class, 'edit'])->name('image.edit');
 Route::post('/image', [ImageController::class, 'create'])->name('image.create');
 Route::patch('/image', [ImageController::class, 'update'])->name('image.update');
+Route::post('/image', [ImageController::class, 'check'])->name('image.check');
 
 require __DIR__.'/auth.php';

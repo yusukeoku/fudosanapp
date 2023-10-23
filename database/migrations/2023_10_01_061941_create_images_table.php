@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->nullable();
-            $table->string('image_path')->nullable();
+            $table->string('user_id');
+            $table->string('image_path');
             $table->string('property_id')->nullable();
             $table->string('image_group_id')->nullable();
-            $table->string('jyutakusapo_check')->nullable();
-            $table->string('user_check')->nullable();
+            $table->integer('agent_check');
+            $table->integer('tenant_check');
+            $table->integer('owner_check');
             $table->timestamps();
         });
     }
