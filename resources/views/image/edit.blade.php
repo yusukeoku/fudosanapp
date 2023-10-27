@@ -6,61 +6,78 @@
     </x-slot>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-        @foreach ($images as $image)
-        <div>
-            <img src="{{ asset('storage/'. $image->image_path) }}" width="400" height="400">
-            <br>
-        </div>
-        @endforeach
+            @if(isset($images))
+            <img src="{{ asset('storage/'. $images->image_path_1) }}" width="400" height="400">
+            <img src="{{ asset('storage/'. $images->image_path_2) }}" width="400" height="400">
+            <img src="{{ asset('storage/'. $images->image_path_3) }}" width="400" height="400">
+            @endif
     </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <h2>
-
+                @if(isset($images))
                 <form action="{{ route('image.check') }}" method="post">
                     @csrf
-
-                    @foreach ($images as $image)
-                    @if($image->agent_check === 1)
-                    <input type="checkbox" checked="checked" name="check" id="check" value="0">チェック
+                    @if($images->agent_check === 1)
+                    <x-input-label for="name" :value="__('画像確認後、チェックをつけて保存ボタンを押してください。')" />
+                    <input type="checkbox" checked="checked" name="check" id="check">
                     @else
-                    <input type="checkbox" name="check" id="check" value="1">チェック
+                    <x-input-label for="name" :value="__('画像確認後、チェックをつけて保存ボタンを押してください。')" />
+                    <input type="checkbox" name="check" id="check">
                     @endif
-                    @endforeach
                     <br><br>
-                    <button type="submit">完了</button>
-
+                    <input type="hidden" name="image_group_id" value="{{$images->image_group_id}}">
+                    <div class="flex items-center gap-4">
+                        <x-primary-button>{{ __('保存') }}</x-primary-button>
+                    </div>
                 </form>
-
+                @endif
                 </h2>
             </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <section>
-                    <header>
+                    <!-- <header>
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ __('物件写真登録・更新') }}
+                            {{ __('物件写真登録') }}
                         </h2>
-                    </header>
+                    </header> -->
 
+                    @if(isset($images))
                     <form method="POST" action="{{ route('image.update') }}" enctype="multipart/form-data">
                         @csrf
-                        @method('patch') <!-- これがないと画像が表示されない -->
-
-                        <br>
-                        <p>物件写真1を登録・更新</p>
+                        @method('patch')
+                        <x-input-label for="name" :value="__('物件写真を更新します。')" />
                         <input type="file" name="image1">
                         <br><br>
-                        <p>物件写真2を登録・更新</p>
                         <input type="file" name="image2">
                         <br><br>
-                        <p>物件写真3を登録・更新</p>
                         <input type="file" name="image3">
                         <br><br>
-                        <button type="submit">登録・更新</button>
+                        <input type="hidden" name="image_group_id" value="{{$images->image_group_id}}">
+                        <div class="flex items-center gap-4">
+                        <x-primary-button>{{ __('更新') }}</x-primary-button>
+                    </div>
                     </form>
+                    @else
+                    <form method="POST" action="{{ route('image.create') }}" enctype="multipart/form-data">
+                        @csrf
+                        <x-input-label for="name" :value="__('物件写真を登録します。')" />
+                        <br>
+                        <input type="file" name="image1">
+                        <br><br>
+                        <input type="file" name="image2">
+                        <br><br>
+                        <input type="file" name="image3">
+                        <br><br>
+                        <div class="flex items-center gap-4">
+                        <x-primary-button>{{ __('登録') }}</x-primary-button>
+                    </div>
+                    </form>
+                    @endif
+
                 </section>
             </div>
         </div>

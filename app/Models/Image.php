@@ -15,12 +15,15 @@ class Image extends Model
      */
     protected $fillable = [
         'user_id',
-        'image_path',
+        'image_path_1',
+        'image_path_2',
+        'image_path_3',
         'property_id',
         'image_group_id',
         'agent_check',
         'tenant_check',
         'owner_check',
+        'image_order',
     ];
 
     /**

@@ -12,7 +12,7 @@
         <!-- Phone Number -->
         <div class="mt-4">
             <x-input-label for="phone_number" :value="__('電話番号')" />
-            <x-text-input id="phone_number" name="phone_number" type="tel" maxlength="13" placeholder="080-XXXX-XXXX" class="block mt-1 w-full" :value="old('phone_number')" autocomplete="phone_number" />
+            <x-text-input id="phone_number" name="phone_number" type="tel" maxlength="13" class="block mt-1 w-full" :value="old('phone_number')" autocomplete="phone_number" />
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
        </div>
 

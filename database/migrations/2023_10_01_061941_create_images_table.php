@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('image_path');
+            $table->string('image_path_1')->nullable();
+            $table->string('image_path_2')->nullable();
+            $table->string('image_path_3')->nullable();
             $table->string('property_id')->nullable();
             $table->string('image_group_id')->nullable();
             $table->integer('agent_check');
             $table->integer('tenant_check');
             $table->integer('owner_check');
+            $table->integer('image_order');
             $table->timestamps();
         });
     }
