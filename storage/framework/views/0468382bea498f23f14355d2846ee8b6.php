@@ -15,9 +15,8 @@
      <?php $__env->endSlot(); ?>
 
     <?php
-        var_dump($images);
+        var_dump($images);//ここに最新のimage_group_idがこない
     ?>
-
 
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
             <?php if(isset($images)): ?>
