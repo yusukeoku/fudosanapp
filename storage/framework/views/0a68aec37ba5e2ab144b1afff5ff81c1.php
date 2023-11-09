@@ -136,13 +136,12 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <?php if(Route::has('password.request')): ?>
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('password.request')); ?>">
-                    <?php echo e(__('パスワードを忘れましたか?')); ?>
+        <?php if(Route::has('register')): ?>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('register')); ?>">
+                <?php echo e(__('新規登録の方')); ?>
 
-                </a>
-            <?php endif; ?>
-
+            </a>
+        <?php endif; ?>
             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'ml-3']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
@@ -161,7 +160,22 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         </div>
+
+        <div class="flex items-center justify-end mt-4">
+        <?php if(Route::has('password.request')): ?>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('password.request')); ?>">
+                <?php echo e(__('パスワードを忘れた方')); ?>
+
+            </a>
+        <?php endif; ?>
+        </div>
+
+        <div class="mt-0">
+            <button type="button" onclick="history.back()">戻る</button>
+        </div>
+
     </form>
+
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>

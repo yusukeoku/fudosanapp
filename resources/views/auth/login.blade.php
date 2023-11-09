@@ -33,15 +33,28 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('パスワードを忘れましたか?') }}
-                </a>
-            @endif
-
+        @if (Route::has('register'))
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                {{ __('新規登録の方') }}
+            </a>
+        @endif
             <x-primary-button class="ml-3">
                 {{ __('ログイン') }}
             </x-primary-button>
         </div>
+
+        <div class="flex items-center justify-end mt-4">
+        @if (Route::has('password.request'))
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                {{ __('パスワードを忘れた方') }}
+            </a>
+        @endif
+        </div>
+
+        <div class="mt-0">
+            <button type="button" onclick="history.back()">戻る</button>
+        </div>
+
     </form>
+
 </x-guest-layout>

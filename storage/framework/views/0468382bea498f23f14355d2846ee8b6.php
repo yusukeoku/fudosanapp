@@ -14,6 +14,11 @@
         </h2>
      <?php $__env->endSlot(); ?>
 
+    <?php
+        var_dump($images);
+    ?>
+
+
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
             <?php if(isset($images)): ?>
             <img src="<?php echo e(asset('storage/'. $images->image_path_1)); ?>" width="400" height="400">

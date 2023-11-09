@@ -23,22 +23,22 @@
             </div>
             @if (Route::has('login'))
             <div class="flex items-center justify-end mt-4">
-                    @auth
-                    <form action="{{ route('/dashboard') }}">
-                        <x-primary-button>{{ __('ダッシュボード') }}</x-primary-button>
+                @auth
+                <form action="{{ route('/dashboard') }}">
+                    <x-primary-button>{{ __('ダッシュボード') }}</x-primary-button>
+                </form>
+                @else
+                    <form action="{{ route('login') }}">
+                        <x-primary-button>{{ __('ログイン') }}</x-primary-button>
                     </form>
-                    @else
-                        <form action="{{ route('login') }}">
-                            <x-primary-button>{{ __('ログイン') }}</x-primary-button>
-                        </form>
-                        &emsp;
-                        @if (Route::has('register'))
-                        <form action="{{ route('register') }}">
-                            <x-primary-button>{{ __('新規登録') }}</x-primary-button>
-                        </form>
-                        @endif
-                    @endauth
-                </div>
+                    &emsp;
+                    @if (Route::has('register'))
+                    <form action="{{ route('register') }}">
+                        <x-primary-button>{{ __('新規登録') }}</x-primary-button>
+                    </form>
+                    @endif
+                @endauth
+            </div>
             @endif
         </div>
     </body>

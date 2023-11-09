@@ -5,6 +5,10 @@
         </h2>
     </x-slot>
 
+    <?php
+        var_dump($images);//ここに最新のimage_group_idがこない
+    ?>
+
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
             @if(isset($images))
             <img src="{{ asset('storage/'. $images->image_path_1) }}" width="400" height="400">

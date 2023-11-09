@@ -48,7 +48,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('すでに登録済みですか?') }}
+                {{ __('登録済みの方') }}
             </a>
 
             <x-primary-button class="ml-4">
@@ -56,4 +56,9 @@
             </x-primary-button>
         </div>
     </form>
+
+    <div class="mt-0">
+        <button type="button" onclick="history.back()">戻る</button>
+    </div>
+
 </x-guest-layout>

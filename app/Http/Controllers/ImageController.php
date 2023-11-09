@@ -21,13 +21,13 @@ class ImageController extends Controller
     {
         $user_id = Auth::id();
         // $images = Image::all();
-        $image_group_id = '1b016266-2c5a-4aa8-8844-1684e02e216f';
+        // $image_group_id = '1b016266-2c5a-4aa8-8844-1684e02e216f';
+        $image_group_id = Image::latest()->first();
         // $images = Image::where('user_id',$user_id)->first();
         $images = Image::where('image_group_id',$image_group_id)->first();
-        // dd($images);
+        // dd($image_group_id);
         return view('image.edit',['images' => $images]);
     }
-
 
     public function create(ImageRequest $request)
     {
@@ -39,9 +39,27 @@ class ImageController extends Controller
 
     // dd($image_group_id);
 
-        $image_path1 = $request->file('image1')->store('images', 'public');
-        $image_path2 = $request->file('image2')->store('images', 'public');
-        $image_path3 = $request->file('image3')->store('images', 'public');
+        // $image_path1 = $request->file('image1')->store('images', 'public');
+        // $image_path2 = $request->file('image2')->store('images', 'public');
+        // $image_path3 = $request->file('image3')->store('images', 'public');
+
+        if ($request->hasFile('image1')) {
+            $image_path1 = $request->file('image1')->store('images', 'public');
+        } else {
+            $image_path1 = null;
+        }
+
+        if ($request->hasFile('image2')) {
+            $image_path2 = $request->file('image2')->store('images', 'public');
+        } else {
+            $image_path2 = null;
+        }
+
+        if ($request->hasFile('image3')) {
+            $image_path3 = $request->file('image3')->store('images', 'public');
+        } else {
+            $image_path3 = null;
+        }
 
         // dd($image_path1);
 
@@ -70,11 +88,9 @@ class ImageController extends Controller
     {
         // 現在認証しているユーザーのIDを取得
         $user_id = Auth::id();
-
         $image_group_id = $request->image_group_id;
 
         // dd($image_group_id);
-
 
         //ファイルが送信されたか確認
         if($request->hasFile('image1')){//バリデーションでチェックするなら、ここは無くてもいいかも
@@ -101,7 +117,7 @@ class ImageController extends Controller
             }
         }
 
-             //ファイルが送信されたか確認
+        //ファイルが送信されたか確認
         if($request->hasFile('image3')){//バリデーションでチェックするなら、ここは無くてもいいかも
             //アップロードに成功しているか確認
                if($request->file('image3')->isValid()){

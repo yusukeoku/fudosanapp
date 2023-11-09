@@ -261,7 +261,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('login')); ?>">
-                <?php echo e(__('すでに登録済みですか?')); ?>
+                <?php echo e(__('登録済みの方')); ?>
 
             </a>
 
@@ -284,6 +284,11 @@
 <?php endif; ?>
         </div>
     </form>
+
+    <div class="mt-0">
+        <button type="button" onclick="history.back()">戻る</button>
+    </div>
+
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>

@@ -37,9 +37,9 @@
             </div>
             <?php if(Route::has('login')): ?>
             <div class="flex items-center justify-end mt-4">
-                    <?php if(auth()->guard()->check()): ?>
-                    <form action="<?php echo e(route('/dashboard')); ?>">
-                        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+                <?php if(auth()->guard()->check()): ?>
+                <form action="<?php echo e(route('/dashboard')); ?>">
+                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -53,10 +53,10 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                    </form>
-                    <?php else: ?>
-                        <form action="<?php echo e(route('login')); ?>">
-                            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+                </form>
+                <?php else: ?>
+                    <form action="<?php echo e(route('login')); ?>">
+                        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -70,11 +70,11 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                        </form>
-                        &emsp;
-                        <?php if(Route::has('register')): ?>
-                        <form action="<?php echo e(route('register')); ?>">
-                            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+                    </form>
+                    &emsp;
+                    <?php if(Route::has('register')): ?>
+                    <form action="<?php echo e(route('register')); ?>">
+                        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -88,10 +88,10 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                        </form>
-                        <?php endif; ?>
+                    </form>
                     <?php endif; ?>
-                </div>
+                <?php endif; ?>
+            </div>
             <?php endif; ?>
         </div>
     </body>
