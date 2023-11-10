@@ -4,16 +4,17 @@
             {{ __('物件写真編集') }}
         </h2>
     </x-slot>
-
-    <?php
-        var_dump($images);//ここに最新のimage_group_idがこない
-    ?>
-
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
             @if(isset($images))
+            @if(isset($images->image_path_1))
             <img src="{{ asset('storage/'. $images->image_path_1) }}" width="400" height="400">
+            @endif
+            @if(isset($images->image_path_2))
             <img src="{{ asset('storage/'. $images->image_path_2) }}" width="400" height="400">
+            @endif
+            @if(isset($images->image_path_3))
             <img src="{{ asset('storage/'. $images->image_path_3) }}" width="400" height="400">
+            @endif
             @endif
     </div>
 
@@ -31,6 +32,7 @@
                     <x-input-label for="name" :value="__('画像確認後、チェックをつけて保存ボタンを押してください。')" />
                     <input type="checkbox" name="check" id="check">
                     @endif
+                    不動産会社担当者用（担当者名：{{$user->name}}）
                     <br><br>
                     <input type="hidden" name="image_group_id" value="{{$images->image_group_id}}">
                     <div class="flex items-center gap-4">

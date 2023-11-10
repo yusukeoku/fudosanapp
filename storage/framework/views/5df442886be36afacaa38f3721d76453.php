@@ -18,8 +18,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <?php echo e(__("ログインしました")); ?>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('image.edit')); ?>">
+                    <?php echo e(__('物件写真編集')); ?>
 
+                </a>
                 </div>
             </div>
         </div>

@@ -19,20 +19,23 @@ class ImageController extends Controller
     // 物件写真編集画面を表示する
     public function edit(Request $request): View
     {
-        $user_id = Auth::id();
+        // $user_id = Auth::id();
+        $user = Auth::user();
         // $images = Image::all();
         // $image_group_id = '1b016266-2c5a-4aa8-8844-1684e02e216f';
-        $image_group_id = Image::latest()->first();
+        $latestimage = Image::latest()->first();
+        $image_group_id = $latestimage['image_group_id'];
         // $images = Image::where('user_id',$user_id)->first();
         $images = Image::where('image_group_id',$image_group_id)->first();
         // dd($image_group_id);
-        return view('image.edit',['images' => $images]);
+        return view('image.edit',['images' => $images, 'user' => $user]);
     }
 
     public function create(ImageRequest $request)
     {
     // 現在認証しているユーザーのIDを取得
     $user_id = Auth::id();
+    $user = Auth::user();
 
     $image_group_id = (string) Str::uuid();
     $property_id = (string) Str::uuid();
@@ -80,7 +83,7 @@ class ImageController extends Controller
         $images = Image::where('user_id',$user_id)->first();
 
         // dd($images);
-        return view('image.edit', ['images' => $images]);
+        return view('image.edit', ['images' => $images, 'user' => $user]);
     }
 
     //物件写真を更新する
@@ -89,6 +92,7 @@ class ImageController extends Controller
         // 現在認証しているユーザーのIDを取得
         $user_id = Auth::id();
         $image_group_id = $request->image_group_id;
+        $user = Auth::user();
 
         // dd($image_group_id);
 
@@ -135,12 +139,13 @@ class ImageController extends Controller
         // ]);
 
         $images = Image::where('image_group_id',$request->image_group_id)->first();
-        return view('image.edit',['images' => $images]);
+        return view('image.edit',['images' => $images, 'user' => $user]);
     }
 
     public function check(Request $request)
     {
-        $user_id = Auth::id();
+        // $user_id = Auth::id();
+        $user = Auth::user();
 
         $agent_check = 0;
         if($request->check=="on"){
@@ -164,6 +169,6 @@ class ImageController extends Controller
         //         'agent_check' => 1,
         // //     ]);
         // });
-        return view('image.edit',['images' => $images]);
+        return view('image.edit',['images' => $images, 'user' => $user]);
     }
 }
